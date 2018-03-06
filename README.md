@@ -1,4 +1,1 @@
-# asui
-
-npm install react react-dom --save
-npm install --save-dev webpack webpack-cli typescript ts-loader babel-preset-es2015 babel-preset-react html-webpack-plugin
+npm install --save @types/jest @types/react @types/react-dom babel-core babel-loader babel-preset-es2015 babel-preset-react css-loader html-webpack-plugin jest less-loader react react-dom style-loader ts-jest ts-loader tslint tslint-react typescript webpack webpack-dev-server webpack-notifier 

@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import './Card.less'
 
 const Card = ({ width = 100, height = 100, children = null, ...props }) => {
     return (
@@ -6,4 +7,4 @@ const Card = ({ width = 100, height = 100, children = null, ...props }) => {
     )
 }
 
-export default Card;
+export default Card

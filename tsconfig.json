@@ -1,11 +1,18 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist/",
-        "sourceMap": true,
-        "noImplicitAny": false,
-        "module": "commonjs",
-        "target": "es5",
-        "jsx": "react",
-        "allowJs": true
-    }
+	"compilerOptions": {
+		"module": "es6",
+		"target": "es6",
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "types",
+		"sourceMap": true,
+		"outDir": "ts-build",
+		"jsx": "preserve",
+		"strict": true,
+		"typeRoots": [
+			"types"
+		]
+	},
+	"exclude": [
+		"node_modules"
+	]
 }

@@ -1,0 +1,49 @@
+const webpack = require('webpack')
+const path = require('path')
+const WebpackNotifierPlugin = require('webpack-notifier')
+
+module.exports = {
+	devtool: 'eval',
+	entry: [
+		'index.tsx'
+	],
+	output: {
+		filename: 'app.js',
+		publicPath: 'dist',
+		path: path.resolve('dist')
+	},
+	devServer: {
+		port: 9000,
+		historyApiFallback: true,
+		inline: true,
+		stats: {
+			modules: false,
+			chunks: false,
+			children: false,
+			chunkModules: false,
+			hash: false,
+		},
+	},
+	resolve: {
+		extensions: ['.ts', '.tsx', '.js', '.jsx'],
+		modules: ['src', 'node_modules'],
+	},
+	module: {
+		rules: [
+			{ test: /\.css/i, use: 'style-loader!css-loader' }, {
+				test: /\.less$/,
+				use: [{
+					loader: "style-loader"
+				}, {
+					loader: "css-loader"
+				}, {
+					loader: "less-loader"
+				}]
+			},
+			{ test: /\.tsx?$/, use: ['babel-loader', 'ts-loader'], include: path.resolve('src') }
+		]
+	},
+	plugins: [
+		new WebpackNotifierPlugin(),
+	]
+}
