@@ -1,9 +1,15 @@
 import React from 'react'
 import './Card.less'
 
-const Card = ({ width = 100, height = 100, children = null, ...props }) => {
+interface CardState {
+    className?: string,
+    style?: object,
+    children?: any,
+}
+
+const Card = (props: CardState) => {
     return (
-        <div className="asui-card" style={{ width, height }}>{children}</div>
+        <div className={`asui-card ${props.className || ''}`} style={{ ...props.style }}>{props.children}</div>
     )
 }
 
