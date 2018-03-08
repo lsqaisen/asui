@@ -2,11 +2,16 @@ import React, { Children } from 'react'
 import './FlipCard.less'
 import Card from './Card'
 
+
+export declare type flipCardAxisType = 'left' | 'center' | 'right';
+
 interface FlipCardProps {
     className?: string,
     type?: string,
+    axis?: flipCardAxisType,
     style?: object,
-    children?: any,
+    frontChildren?: any,
+    backChildren?: any,
 }
 
 interface FlipCardState {
@@ -27,19 +32,18 @@ class FlipCard extends React.Component<FlipCardProps, FlipCardState> {
     }
 
     render() {
+        const { axis, frontChildren, backChildren } = this.props;
         const cardData = { style: this.props.style };
         return (
-            <div
-                className={`asui-card-flip-box ${this.state.isFlip ? 'asui-card-flip' : ''} ${this.props.className || ''} `}
+            <section
+                className={`asui-card-flip-box asui-card-flip-${axis || 'center'} ${this.state.isFlip ? 'asui-card-flipped' : ''} ${this.props.className || ''}`}
                 onClick={() => this.onFlip(!this.state.isFlip)}
             >
-                <Card className="asui-card-front" {...cardData} >
-                    {this.props.children}
+                <Card className={``} {...cardData} >
+                    <figure className="asui-card-flip-figure front">{frontChildren}</figure>
+                    <figure className="asui-card-flip-figure back">{backChildren}</figure>
                 </Card>
-                <Card className="asui-card-back" {...cardData} >
-                    xxxxasfa
-                </Card>
-            </div>
+            </section>
         )
     }
 }

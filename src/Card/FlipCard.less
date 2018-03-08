@@ -1,38 +1,62 @@
 .asui-card-flip-box {
-    // overflow: hidden;
-    position: relative;
+    float: left;
     width: 365px;
     height: 300px;
-    transform-style: preserve-3d;
-    transition: transform 1.2s;
-    transition-delay: 0.03s;
-    .asui-card-front {
-        position: absolute;
-        top: 0;
-        left: 0;
-        backface-visibility: hidden;
+    position: relative;
+    perspective: 800px;
+    .asui-card {
         width: 100%;
         height: 100%;
-        z-index: 2;
-        background-color: #fff;
-    }
-    .asui-card-back {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transform: rotateY(180deg);
-        background: paleturquoise;
-        z-index: 1;
-    }
-    &.asui-card-flip {
-        transform: perspective(100000px) rotateY(-180deg);
-        .asui-card-front {
-            z-index: 1;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+        .asui-card-flip-figure {
+            margin: 0;
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            &.front {
+                background: palegoldenrod;
+            }
+            &.back {
+                transform: rotateY(-180deg);
+                background: paleturquoise;
+            }
         }
-        .asui-card-back {
-            z-index: 2;
+    }
+}
+
+.asui-card-flip-center {
+    .asui-card {
+        transform-origin: center center;
+    }
+    &.asui-card-flipped {
+        .asui-card {
+            transform: rotateY( 180deg);
+        }
+    }
+}
+
+.asui-card-flip-right {
+    .asui-card {
+        transform-origin: right center;
+    }
+    &.asui-card-flipped {
+        .asui-card {
+            transform: translateX(-100%) rotateY(-180deg);
+        }
+    }
+}
+
+.asui-card-flip-left {
+    .asui-card {
+        transform-origin: left center;
+    }
+    &.asui-card-flipped {
+        .asui-card {
+            transform: translateX(100%) rotateY(180deg);
         }
     }
 }
