@@ -5,7 +5,7 @@ import Card from './Card'
 
 export declare type flipCardAxisType = 'left' | 'center' | 'right';
 
-interface FlipCardProps {
+export interface FlipCardProps {
     className?: string,
     type?: string,
     axis?: flipCardAxisType,
@@ -14,11 +14,11 @@ interface FlipCardProps {
     backChildren?: any,
 }
 
-interface FlipCardState {
+export interface FlipCardState {
     isFlip: boolean,
 }
 
-class FlipCard extends React.Component<FlipCardProps, FlipCardState> {
+export default class FlipCard extends React.Component<FlipCardProps, FlipCardState> {
     public state: FlipCardState;
     constructor(props: FlipCardProps) {
         super(props);
@@ -47,5 +47,3 @@ class FlipCard extends React.Component<FlipCardProps, FlipCardState> {
         )
     }
 }
-
-export default FlipCard

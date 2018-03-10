@@ -8,8 +8,14 @@ interface CardState {
 }
 
 const Card = (props: CardState) => {
+    const { className, style, children } = props;
     return (
-        <div className={`asui-card ${props.className || ''}`} style={{ ...props.style }}>{props.children}</div>
+        <div
+            className={`asui-card ${className || ''}`}
+            style={{ ...style }}
+        >
+            {children}
+        </div>
     )
 }
 

@@ -4,6 +4,7 @@ import './index.less'
 
 import Card from './Card/Card'
 import FlipCard from './Card/FlipCard'
+import PileCard from './Card/PileCard'
 
 const App = () => {
 	return (
@@ -33,6 +34,10 @@ const App = () => {
 						backChildren={<p>back3</p>}
 					/>
 				</div>
+			</div>
+
+			<div className='row'>
+				<PileCard list={'asdasdxxxxxxxxxxxxxxxxx'.split('')} />
 			</div>
 		</div>
 	)

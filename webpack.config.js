@@ -30,12 +30,14 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{ test: /\.css/i, use: 'style-loader!css-loader' }, {
+			{ test: /\.css/i, use: 'style-loader!css-loader!postcss-loade' }, {
 				test: /\.less$/,
 				use: [{
 					loader: "style-loader"
 				}, {
 					loader: "css-loader"
+				}, {
+					loader: "postcss-loader"
 				}, {
 					loader: "less-loader"
 				}]
@@ -45,5 +47,10 @@ module.exports = {
 	},
 	plugins: [
 		new WebpackNotifierPlugin(),
+		// new webpack.LoaderOptionsPlugin({
+		// 	options: {
+		// 		postcss: [require('autoprefixer')({ browsers: ['last 5 versions'] })]
+		// 	}
+		// }),
 	]
 }
